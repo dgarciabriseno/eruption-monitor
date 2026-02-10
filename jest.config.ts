@@ -17,6 +17,9 @@ const config: Config = {
     "\\.(jpg|jpeg|png|gif|svg|glb)$": "<rootDir>/src/__mocks__/fileMock.ts",
   },
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  globals: {
+    __BASE_URL__: "/",
+  },
   transformIgnorePatterns: [
     "node_modules/(?!(@helioviewer|three|@react-three)/)",
   ],

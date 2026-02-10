@@ -7,7 +7,10 @@ import type { CMEEvent } from "../types/cme.ts";
 import { TimeControls } from "./TimeControls.tsx";
 import "./CMEViewer.css";
 
-SunConfig.model_path = "/resources/models/zit.glb";
+// __BASE_URL__ is replaced by Vite's `define` at build time; falls back to "/" in tests
+declare const __BASE_URL__: string;
+const baseUrl = typeof __BASE_URL__ !== "undefined" ? __BASE_URL__ : "/";
+SunConfig.model_path = `${baseUrl}resources/models/zit.glb`;
 CameraControls.install({ THREE });
 
 interface SolarTimelapseProps {
